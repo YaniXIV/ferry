@@ -1,0 +1,9 @@
+# ferry-go's test suite exercises real pointer/memory plumbing (alloc,
+# dealloc, the WasmBuf ptr/len convention) that's only meaningful in a
+# genuine 32-bit wasm32 address space -- running it natively on a 64-bit
+# host would truncate real heap pointers into the u32 WasmBuf fields.
+# wasmtime runs the compiled test binary as an actual wasm32-wasip1 guest,
+# the same way wazero will run it from Go, so the tests see real 32-bit
+# addresses.
+[target.wasm32-wasip1]
+runner = "wasmtime run --dir=."

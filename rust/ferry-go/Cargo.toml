@@ -1,0 +1,17 @@
+[package]
+name = "ferry-go"
+version = "0.1.0"
+edition = "2021"
+description = "Guest-side helpers for Ferry: alloc/dealloc, the wire envelope, and a panic-safe export() wrapper for wasm32-wasip1 guests called from Go."
+license = "MIT"
+
+[lib]
+crate-type = ["rlib"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_bytes = "0.11"
+rmp-serde = "1.3"
+
+[dev-dependencies]
+rmp-serde = "1.3"
